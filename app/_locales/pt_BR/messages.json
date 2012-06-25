@@ -1,0 +1,10 @@
+{
+  "nation": {
+    "message":      "Brazil",
+    "description":  "The name of the local region"
+  },
+  "languageCode": {
+    "message":      "pt-BR",
+    "description":  "Specifies the feed edition to use"
+  }
+}

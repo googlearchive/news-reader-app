@@ -1,0 +1,59 @@
+{
+  "allStories": {
+    "message": "All Stories",
+    "description": "All stories category title"
+  },
+  "topStories": {
+    "message":      "Top Stories",
+    "description":  "Top stories category title"
+  },
+  "newsNearYou": {
+    "message":      "News near you",
+    "description":  "Top stories category title"
+  },
+  "world": {
+    "message":      "World",
+    "description":  "World category title"
+  },
+  "business": {
+    "message":      "Business",
+    "description":  "Business category title"
+  },
+  "nation": {
+    "message":      "U.S.",
+    "description":  "Nation category title"
+  },
+  "technology": {
+    "message":      "Technology",
+    "description":  "Technology category title"
+  },
+  "entertainment": {
+    "message":      "Entertainment",
+    "description":  "Entertainment category title"
+  },
+  "sports": {
+    "message":      "Sports",
+    "description":  "Sports category title"
+  },
+  "science": {
+    "message":      "Science",
+    "description":  "Science category title"
+  },
+  "health": {
+    "message":      "Health",
+    "description":  "Health category title"
+  },
+  "spotlight": {
+    "message":      "Spotlight",
+    "description":  "Spotlight category title"
+  },
+
+  "baseFeedUri": {
+    "message":      "http://news.google.com/news?output=rss",
+    "description":  "The base uri to load all feed from"
+  },
+  "languageCode": {
+    "message":      "us",
+    "description":  "The feed edition to use"
+  }
+}

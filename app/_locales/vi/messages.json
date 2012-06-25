@@ -1,0 +1,10 @@
+{
+  "nation": {
+    "message":      "Việt Nam (Vietnam)",
+    "description":  "The name of the local region"
+  },
+  "languageCode": {
+    "message":      "vi_vn",
+    "description":  "Specifies the feed edition to use"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "nation": {
+    "message":      "Česká republika",
+    "description":  "The name of the local region"
+  },
+  "languageCode": {
+    "message":      "cs_cz",
+    "description":  "Specifies the feed edition to use"
+  }
+}

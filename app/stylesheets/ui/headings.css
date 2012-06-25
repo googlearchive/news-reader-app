@@ -1,0 +1,17 @@
+.primary_header{
+  margin-bottom: 5%;
+  font-size: 1.5em;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.secondary_heading{
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.tertiary_header{
+  font-size: 1.25em;
+  font-weight: 600;
+  text-transform: uppercase;
+}

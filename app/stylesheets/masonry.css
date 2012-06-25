@@ -1,0 +1,5 @@
+.masonry, .masonry .masonry-brick { -webkit-transition-duration: 0.7s; }
+
+.masonry{ -webkit-transition-property: height, width; }
+
+.masonry .masonry-brick{ -webkit-transition-property: left, right, top; }

@@ -1,0 +1,10 @@
+{
+  "nation": {
+    "message":      "España",
+    "description":  "The name of the local region"
+  },
+  "languageCode": {
+    "message":      "es",
+    "description":  "Specifies the feed edition to use"
+  }
+}

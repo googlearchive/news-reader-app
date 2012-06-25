@@ -1,0 +1,9 @@
+<% if (image) { %>
+  <img src="<%= image %>" />
+<% } %>
+<p class="news_category"><%= category %></p>
+<div class="news_meta">
+  <h1 class="primary_header"><%= title %></h1>
+  <p class="news_meta_item"><%= source %></p>
+  <p class="news_meta_item timeago" data-sort_by="<%= updatedTime %>" title="<%= new Date(updated).toISOString() %>"><%= updated %></p>
+</div>

@@ -1,0 +1,10 @@
+{
+  "nation": {
+    "message":      "Norge",
+    "description":  "The name of the local region"
+  },
+  "languageCode": {
+    "message":      "no_no",
+    "description":  "Specifies the feed edition to use"
+  }
+}

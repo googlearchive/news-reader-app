@@ -1,0 +1,10 @@
+@font-face{
+    font-family: 'Pictos';
+    src: url('../../fonts/pictos-web.eot');
+    src: url('../../fonts/pictos-web.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/pictos-web.woff') format('woff'),
+         url('../../fonts/pictos-web.ttf') format('truetype'),
+         url('../../fonts/pictos-web.svg#Pictos') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

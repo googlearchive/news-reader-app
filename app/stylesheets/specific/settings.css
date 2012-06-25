@@ -1,0 +1,36 @@
+.settings_dropdown{
+  right: 0;
+  left: auto;
+  width: 300px;
+}
+
+.settings_dropdown:before{
+  right: 12px;
+  left: auto;
+}
+
+.settings_dropdown select{ width: 100%; }
+
+.settings_dropdown li{
+  display: inline-block;
+  margin-bottom: 5px;
+  width: 48%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.settings_dropdown li:before{
+  content: "";
+  display: inline-block;
+  margin-right: 9px;
+  width: 8px;
+  height: 8px;
+  outline: 1px solid #666;
+  border: 1px solid #333;
+}
+
+.settings_dropdown li:hover:before{ background: #666; }
+
+.settings_dropdown li.active:before{ background: #fff; }
+
+.settings_dropdown li:odd-child{ margin-right: 4%; }

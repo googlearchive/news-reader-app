@@ -1,0 +1,102 @@
+<html>
+  <head>
+    <title>Chrome News App</title>
+
+    <style type="text/css">
+      @import url("stylesheets/fonts/pictos.css");
+      @import url("stylesheets/reset.css");
+      @import url("stylesheets/base.css");
+      @import url("stylesheets/masonry.css");
+      @import url("stylesheets/ui/navigation.css");
+      @import url("stylesheets/ui/headings.css");
+      @import url("stylesheets/ui/browser.css");
+      @import url("stylesheets/ui/news_index.css");
+      @import url("stylesheets/ui/search.css");
+      @import url("stylesheets/specific/categories.css");
+      @import url("stylesheets/specific/settings.css");
+    </style>
+
+    <script src="javascripts/vendor/jquery-1.7.2.min.js"></script>
+    <script src="javascripts/vendor/underscore.min.js"></script>
+    <script src="javascripts/vendor/backbone.min.js"></script>
+    <script src="javascripts/vendor/backbone.eventdata.js"></script>
+    <script src="javascripts/vendor/backbone-indexeddb.js"></script>
+    <script src="javascripts/vendor/jfeed.min.js"></script>
+    <script src="javascripts/vendor/masonry.min.js"></script>
+    <script src="javascripts/vendor/masonry_ordered.js"></script>
+    <script src="javascripts/vendor/jquery.timeago.js"></script>
+    <script src="javascripts/vendor/filer.min.js"></script>
+    <script src="javascripts/vendor/jquery.tinysort.min.js"></script>
+    <script src="javascripts/vendor/hotkeys.js"></script>
+    <script src="javascripts/vendor/inflection.js"></script>
+
+    <script src="javascripts/app.js"></script>
+    <script src="javascripts/ui.js"></script>
+    <script src="javascripts/lib/feedParsers/google.js"></script>
+    <script src="javascripts/models/setting.js"></script>
+    <script src="javascripts/models/article.js"></script>
+    <script src="javascripts/models/displayed-articles.js"></script>
+    <script src="javascripts/models/search.js"></script>
+    <script src="javascripts/views/window-view.js"></script>
+    <script src="javascripts/views/article-view.js"></script>
+    <script src="javascripts/views/category-view.js"></script>
+    <script src="javascripts/views/search-view.js"></script>
+    <script src="javascripts/views/search-results-view.js"></script>
+    <script src="javascripts/views/settings-view.js"></script>
+    <script src="javascripts/templates.js"></script>
+    <script src="javascripts/setup.js"></script>
+  </head>
+  <body>
+    <nav id="main_nav">
+      <ul class="icon_list">
+        <li class="icon" id="search_menu">
+          <a href="#" id="search_trigger">s</a>
+          <form id="search_form">
+            <input type="text" id="search_term" />
+            <button id="search_button" type="submit">s</button>
+          </form>
+        </li>
+        <li class="icon">
+          <a href="#" id="close_search">*</a>
+        </li>
+        <li class="category_list_trigger">
+          <a href="/categories/" id="categories_trigger">Categories</a>
+          <div class="dropdown">
+            <ul class="category_list"></ul>
+          </div>
+        </li>
+      </ul>
+      <ul class="icon_list right_icon_list">
+        <li class="icon">
+          <a href="/settings/" id="settings_trigger">y</a>
+          <div class="dropdown settings_dropdown">
+            <div class="content_block">
+              <h2 class="tertiary_header">Edit Categories</h2>
+              <p class="hint">Select your preferred categories:</p>
+              <ul id="settings_categories"></ul>
+            </div>
+            <div class="content_block">
+              <h2 class="tertiary_header">Change Location</h2>
+              <p class="hint">Select a country or region:</p>
+              <select id="settings_languages"></select>
+            </div>
+          </div>
+        </li>
+        <li class="icon"><a href="#" id="fullscreen_trigger">`</a></li>
+      </ul>
+    </nav>
+    <ol id="news_container"></ol>
+    <ol id="search_container"></ol>
+    <div id="browser_wrap">
+      <header class="browser_controls">
+        <h2 class="secondary_heading browser_heading"></h2>
+        <nav class="browser_tools">
+          <a href="#" class="share_trigger">R</a>
+          <a href="#" class="save_trigger">c</a>
+          <a href="#" class="close_browser_trigger">*</a>
+        </nav>
+      </header>
+      <div id="browser_container"></div>
+    </div>
+  </body>
+</html>
