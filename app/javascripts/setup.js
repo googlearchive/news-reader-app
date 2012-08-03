@@ -52,19 +52,6 @@ $(function() {
       });
     }
   });
-
-  // Send a message to the background process to stop working every 60 seconds currently there
-  // is no event for when the app window is closed so we get the main app to send a message to
-  // the background process every 60 seconds telling it to stay paused. There should be an
-  // onSuspend event at some point which can be used instead of this code
-  chrome.extension.sendMessage('pause');
-  setInterval(function() {
-    chrome.extension.sendMessage('pause');
-  }, 60000);
-
-  // Send a message to the background app to say the main app has been opened
-  chrome.extension.sendMessage('appOpened');
-
 });
 
 // This setting is used to control the background processing of feeds
@@ -100,7 +87,7 @@ App.restoreState = function(){
 App.initializeArticles = function(){
   // initialize filer
   App.filer = new Filer();
-  App.filer.init({persistent: true, size: 1024 * 1024}, function(fs) {
+  App.filer.init({persistent: false, size: 1024 * 1024}, function(fs) {
     App.filer.size = 10485760; // set the file size limit to 10 mb
 
     // The Articles collection keeps track of all known articles

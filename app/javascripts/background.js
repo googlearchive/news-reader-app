@@ -16,4 +16,5 @@ chrome.experimental.app.onLaunched.addListener(function() {
     top: 100
   };
   chrome.app.window.create('main.html', opts);
+  App.notificationsView.clearCounts();
 });
