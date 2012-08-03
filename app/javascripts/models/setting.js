@@ -141,10 +141,10 @@ App.Settings = Backbone.Model.extend({
 
         // Get a record from the sync store
         this.syncStore.get(null, function(items){
-          if(chrome.extension.lastError){
+          if(chrome.runtime.lastError){
 
             // If there was an error pass it to the error callback
-            options.error(chrome.extension.lastError.message);
+            options.error(chrome.runtime.lastError.message);
           }else{
 
             // On success store the records in the model
@@ -160,10 +160,10 @@ App.Settings = Backbone.Model.extend({
 
         // Save data to the sync store
         this.syncStore.set(model.attributes, function(){
-          if(chrome.extension.lastError){
+          if(chrome.runtime.lastError){
 
             // If there was an error pass it to the error callback
-            options.error(chrome.extension.lastError.message);
+            options.error(chrome.runtime.lastError.message);
           }else{
 
             // invoke the success callback
