@@ -15,7 +15,7 @@
 
   #close_search{ display: none; }
 
-  .search_performed #close_search{ display: block; }
+  .search_performed #close_search{ display: inline-block; }
 
   #search_term{
     padding: .5em 0;

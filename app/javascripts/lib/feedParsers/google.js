@@ -85,6 +85,14 @@ App.googleFeed = {
     // If a query string is present encode the string and add it to the uri
     if(options.query){
       uri += "&q=" + encodeURIComponent(options.query);
+
+      // Get 50 search results when searching
+      options.num = 50;
+    }
+
+    // If the num option is present return the requested number of results
+    if(options.num) {
+      uri += "&num=" + options.num;
     }
 
     // Return the built uri

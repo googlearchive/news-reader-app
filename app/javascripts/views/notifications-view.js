@@ -58,7 +58,7 @@ App.NotificationsView = Backbone.View.extend({
 
       // build the notification object
       this.notification = webkitNotifications.createNotification(
-        '48.png',
+        'icon_48.png',
         'You have ' + this.unreadArticles + ' new ' + App.pluralize('article', this.unreadArticles) + ' in the Google News App',
         'Click to launch the app'
       );

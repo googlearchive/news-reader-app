@@ -1,17 +1,19 @@
 /*global App: false, Filer: false */
 
-// ### Authors
-// Jamie Dyer <http://kernowsoul.com>
-// Chris Garrett <http://abstraktion.co.uk>
-// ### Last changed
-// 2012-06-23
-
 // ## Overview
 // This file sets up the backbone application and initializes all classes required for the application
 // to run, this includes loading initial data where required.
 
-$(function() {
-  // ### Initialize settings
+// Call `App.resumeProcessing()` immediately so processes know they can run
+App.resumeProcessing();
+
+// Create a setup object for all the setup code
+App.setup = {};
+
+// ### App.setup.initializeAndLoadSettings
+// Initializes the settings model and loads the settings data either from Google sync
+// storage or from settings files
+App.setup.initializeAndLoadSettings = function(){
 
   // Create a new settings model
   App.settings = new App.Settings();
@@ -43,92 +45,53 @@ $(function() {
           }});
         }
 
-        // Settings have been fetched so we can initialize the articles and settings view
-        App.initializeArticles();
-        App.initializeSettingsView();
-
-        // Initialize categories list
-        new App.CategoriesListView();
+        App.dispatcher.trigger('settingsLoaded');
       });
     }
   });
-});
-
-// This setting is used to control the background processing of feeds
-App.canBackgroundProcess = true;
-
-App.initializeSettingsView = function(){ new App.SettingsView(); };
-
-App.initialize_window_view = function(){ new App.WindowView(); };
-
-// ### App.restoreState
-// Restore the state of the application on load, settings are loaded from the
-App.restoreState = function(){
-  // Restore the state of an open article if needed
-  var articleId = App.settings.get('openArticleId');
-  if(articleId !== ""){
-
-    // Load the article from storage
-    var article = App.articles.get(articleId);
-
-    if(article){
-      // If the article is found restore the viewing state using the article view
-      var articleView = new App.ArticleView({ model: article });
-      articleView.openLink();
-    }else{
-      // If the article can't be found remove the setting from storage
-      App.settings.saveOpenArticleId('');
-    }
-  }
 };
 
-// ### App.initializeArticles
+// ### App.setup.initializeArticles
 // Handles all initialization to do with the articles collections and model
-App.initializeArticles = function(){
-  // initialize filer
-  App.filer = new Filer();
-  App.filer.init({persistent: false, size: 1024 * 1024}, function(fs) {
-    App.filer.size = 10485760; // set the file size limit to 10 mb
+App.setup.initializeArticles = function(){
 
-    // The Articles collection keeps track of all known articles
+  // Initialize filer, this is a wrapper library for the HTML5 Filesystem API
+  App.filer = new Filer();
+  App.filer.init({persistent: true, size: 1024 * 1024}, function(fs) {
+
+    // set the file size limit to 10 mb
+    App.filer.size = 10485760;
+
+    // Filer is now initialized, the articles collection can be initialized
     App.articles = new App.Articles();
 
-    // The DisplayedArticles collection stores only the articles displayed on the screen
-    App.displayedArticles = new App.DisplayedArticles();
+    // Trigger the `articlesInitialized` event
+    App.dispatcher.trigger('articlesInitialized');
 
-    // Initialize the articles view and pass it the DisplayedArticles collection
-    App.articles_view = new App.ArticlesView({ collection: App.displayedArticles });
-
-    // Fetch articles to display
-    App.displayedArticles.load();
-
+    // Load articles from storage
     App.articles.fetch({
       success: function(){
 
-        // Load new articles from the feed on initialization
-        App.articles.getFromFeed(App.googleFeed);
+        // Tell the articles model to start pulling data from the Google news feeds
+        App.articles.startProcessing();
 
-        // Load new articles every minute
-        setInterval(function() {
-          App.articles.getFromFeed(App.googleFeed);
-        }, 60000);
-
-        // Restore the applications state once the articles have been loaded
-        App.restoreState();
+        // Trigger the `articlesLoaded` event
+        App.dispatcher.trigger('articlesLoaded');
       }
     });
 
-    // Search initialization
-    App.searchResults = new App.SearchResults();
-    new App.SearchResultsView({ collection: App.searchResults });
-    new App.SearchView();
-
-
   }, function(e){
+
+    // Log any filer errors to the console for debugging
     console.warn('error: ', e);
   });
-
-  new App.CloseBrowserView();
 };
 
-App.initialize_window_view();
+// Trigger the `appLoaded` event when everything is loaded
+$(function() {
+  App.dispatcher.trigger('appLoaded');
+});
+
+// Register event handlers
+App.dispatcher.on('appLoaded',      App.setup.initializeAndLoadSettings );
+App.dispatcher.on('settingsLoaded', App.setup.initializeArticles        );

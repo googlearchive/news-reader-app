@@ -21,6 +21,7 @@ The main readme is available at <http://abstraktion.github.com/Google-Chrome-New
 * [background.js](http://abstraktion.github.com/Google-Chrome-News/background.html)
 * [app.js](http://abstraktion.github.com/Google-Chrome-News/app.html)
 * [setup.js](http://abstraktion.github.com/Google-Chrome-News/setup.html)
+* [foreground-setup.js](http://abstraktion.github.com/Google-Chrome-News/foreground-setup.html)
 * [background-setup.js](http://abstraktion.github.com/Google-Chrome-News/background-setup.html)
 * models/
     * [article.js](http://abstraktion.github.com/Google-Chrome-News/article.html)
@@ -31,6 +32,7 @@ The main readme is available at <http://abstraktion.github.com/Google-Chrome-New
     * [article-view.js](http://abstraktion.github.com/Google-Chrome-News/article-view.html)
     * [category-view.js](http://abstraktion.github.com/Google-Chrome-News/category-view.html)
     * [fullscreen-view.js](http://abstraktion.github.com/Google-Chrome-News/fullscreen-view.html)
+    * [intent-view.js](http://abstraktion.github.com/Google-Chrome-News/intent-view.html)
     * [notifications-view.js](http://abstraktion.github.com/Google-Chrome-News/notifications-view.html)
     * [search-results-view.js](http://abstraktion.github.com/Google-Chrome-News/search-results-view.html)
     * [search-view.js](http://abstraktion.github.com/Google-Chrome-News/search-view.html)
@@ -118,17 +120,17 @@ The application is built using [backbone.js](http://backbonejs.org/) and general
 
 ## Google Feed uri's
 
-* Top Stories   http://news.google.com/news?ned=uk&output=rss&topic=h
-* News Near You http://news.google.com/news?ned=uk&output=rss&geo=detect_metro_area
-* World         http://news.google.com/news?ned=uk&output=rss&topic=w
-* Business      http://news.google.com/news?ned=uk&output=rss&topic=b
-* U.K.          http://news.google.com/news?ned=uk&output=rss&topic=n
-* Technology    http://news.google.com/news?ned=uk&output=rss&topic=tc
-* Entertainment http://news.google.com/news?ned=uk&output=rss&topic=e
-* Sports        http://news.google.com/news?ned=uk&output=rss&topic=s
-* Science       http://news.google.com/news?ned=uk&output=rss&topic=snc
-* Health        http://news.google.com/news?ned=uk&output=rss&topic=m
-* Spotlight     http://news.google.com/news?ned=uk&output=rss&topic=ir
+* [Top Stories](http://news.google.com/news?ned=uk&output=rss&topic=h)
+* [News Near You](http://news.google.com/news?ned=uk&output=rss&geo=detect_metro_area)
+* [World](http://news.google.com/news?ned=uk&output=rss&topic=w)
+* [Business](http://news.google.com/news?ned=uk&output=rss&topic=b)
+* [U.K.](http://news.google.com/news?ned=uk&output=rss&topic=n)
+* [Technology](http://news.google.com/news?ned=uk&output=rss&topic=tc)
+* [Entertainment](http://news.google.com/news?ned=uk&output=rss&topic=e)
+* [Sports](http://news.google.com/news?ned=uk&output=rss&topic=s)
+* [Science](http://news.google.com/news?ned=uk&output=rss&topic=snc)
+* [Health](http://news.google.com/news?ned=uk&output=rss&topic=m)
+* [Spotlight](http://news.google.com/news?ned=uk&output=rss&topic=ir)
 
 ## Languages supported by Google news feeds
 

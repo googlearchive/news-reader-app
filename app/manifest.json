@@ -1,8 +1,3 @@
-/*
- * Authors:       Jamie Dyer (http://kernowsoul.com)
- * Last changed:  2012-06-11
- */
-
 {
   "name": "Google News Reader",
   "description": "Read news",
@@ -25,22 +20,22 @@
         "javascripts/models/setting.js",
         "javascripts/models/article.js",
         "javascripts/views/notifications-view.js",
+        "javascripts/setup.js",
         "javascripts/background-setup.js"
       ]
     }
   },
   "icons": {
+    "16": "icon_128.png"
     "128": "icon_128.png"
   },
   "offline_enabled": true,
-  // "content_security_policy": "script-src 'self'; object-src 'self' https://nt3.ggpht.com",
   "permissions": [
     "unlimitedStorage",
     "storage",
     "notifications",
-    "management", // Required to launch the main app window from notifications
-    "appWindow",
     "experimental",
+    "browserTag",
     "http://nt3.ggpht.com/*",
     "http://news.google.com/*",
     "http://*/*"
