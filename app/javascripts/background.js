@@ -8,7 +8,7 @@
 // triggered when the application is launched. A window is then created for the app
 // which loads in main.html and sets some positional options.
 
-chrome.experimental.app.onLaunched.addListener(function() {
+chrome.app.runtime.onLaunched.addListener(function() {
   var opts = {
     width: 1200,
     height: 600,
