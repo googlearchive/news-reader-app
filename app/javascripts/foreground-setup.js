@@ -22,11 +22,11 @@ App.setup.initializeMessaging = function(){
 };
 
 // ### view initalization functions
-App.setup.initializeSettingsView        = function(){ new App.SettingsView();       };
-App.setup.initializeWindowView          = function(){ new App.WindowView();         };
-App.setup.initializeCategoriesListView  = function(){ new App.CategoriesListView(); };
-App.setup.initializeIntentView          = function(){ new App.IntentView();         };
-App.setup.initializeCloseBrowserView    = function(){ new App.CloseBrowserView();   };
+App.setup.initializeSettingsView        = function(){ new App.SettingsView();                             };
+App.setup.initializeWindowView          = function(){ new App.WindowView(); new App.CloseWindowView();    };
+App.setup.initializeCategoriesListView  = function(){ new App.CategoriesListView();                       };
+App.setup.initializeIntentView          = function(){ new App.IntentView();                               };
+App.setup.initializeCloseBrowserView    = function(){ new App.CloseBrowserView();                         };
 
 // ### App.setup.initializeAndLoadDisplayedArticles
 // Initialises the `DisplayedArticles` collection and then loads records into memory
