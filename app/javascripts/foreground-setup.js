@@ -27,7 +27,6 @@ App.setup.initializeWindowView          = function(){ new App.WindowView();
                                                       new App.CloseWindowView();
                                                       new App.FullScreenView();                           };
 App.setup.initializeCategoriesListView  = function(){ new App.CategoriesListView();                       };
-App.setup.initializeIntentView          = function(){ new App.IntentView();                               };
 App.setup.initializeCloseBrowserView    = function(){ new App.CloseBrowserView();                         };
 
 // ### App.setup.initializeAndLoadDisplayedArticles
@@ -77,7 +76,6 @@ App.setup.restoreState = function(){
 App.dispatcher.on('appLoaded',       App.setup.initializeMessaging               );
 App.dispatcher.on('appLoaded',       App.setup.initializeWindowView              );
 App.dispatcher.on('appLoaded',       App.setup.initializeSearch                  );
-App.dispatcher.on('appLoaded',       App.setup.initializeIntentView              );
 App.dispatcher.on('appLoaded',       App.setup.initializeCloseBrowserView        );
 App.dispatcher.on('settingsLoaded',  App.setup.initializeSettingsView            );
 App.dispatcher.on('settingsLoaded',  App.setup.initializeCategoriesListView      );
