@@ -6,9 +6,7 @@ This is a Google Chrome App that consumes Google news RSS feeds for easy viewing
 
 To run this Google Chrome App you will need to have the latest [Google Chrome Canary](https://tools.google.com/dlpage/chromesxs/) installed with a few of the options changed. Open the [chrome://flags/](chrome://flags/) page and enable the following settings:
 
-* Browser Plugin (set to "Everywhere")
 * Experimental Extension APIs
-* Enable platform apps
 
 Open extension settings (select the Chrome wrench tool > Tools > Extensions) and Check "Developer mode".
 
