@@ -6,7 +6,7 @@ body{
   background: transparent;
   color: #999;
   height: 100%;
-  overflow-x: auto;
+  overflow-y: auto;
 }
 
 a{
