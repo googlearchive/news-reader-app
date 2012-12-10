@@ -5,6 +5,8 @@ body{
   font: .75em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: transparent;
   color: #999;
+  height: 100%;
+  overflow-x: auto;
 }
 
 a{
