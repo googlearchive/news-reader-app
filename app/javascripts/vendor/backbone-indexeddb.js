@@ -22,9 +22,9 @@
 
      /* Horrible Hack to prevent ' Expected an identifier and instead saw 'continue' (a reserved word).'*/
      if (window.indexedDB) {
-         indexedDB.prototype._continue =  indexedDB.prototype.continue;
+         //indexedDB.prototype._continue =  indexedDB.prototype.continue;
      } else if (window.webkitIDBRequest) {
-         webkitIDBRequest.prototype._continue = webkitIDBRequest.prototype.continue;
+         //webkitIDBRequest.prototype._continue = webkitIDBRequest.prototype.continue;
      }
 
      window.indexedDB = indexedDB;
