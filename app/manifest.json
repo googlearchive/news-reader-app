@@ -35,7 +35,7 @@
     "storage",
     "notifications",
     "experimental",
-    "browserTag",
+    "webview",
     "http://nt3.ggpht.com/*",
     "http://news.google.com/*",
     "http://*/*"
