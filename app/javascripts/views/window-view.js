@@ -20,7 +20,8 @@ App.WindowView = Backbone.View.extend({
     scroll: "set_scroll_state",
     mousemove: "deactivate_keyboard_state",
     // Binding FPS directional nav as arrow keys are problematic
-    "keyup[w a s d]": "activate_keyboard_state"
+    "keyup[w a s d]": "activate_keyboard_state",
+    "keyup[esc]": "remove_webview"
   },
   
   // ### set_ui
@@ -124,6 +125,15 @@ App.WindowView = Backbone.View.extend({
       this.activate_item($(".news_item:first"));
     }
 
+    return false;
+  },
+
+  // ###
+  remove_webview: function(e) {
+    $("body").removeClass("news_loaded");
+    $("#browser_container").html("");
+    // Remove the currently open article from the settings model so the app's state is saved
+    App.settings.saveOpenArticleId('');
     return false;
   }
 });
