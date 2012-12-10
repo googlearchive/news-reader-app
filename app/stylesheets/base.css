@@ -18,7 +18,7 @@ nav#main_nav {
   -webkit-app-region: drag;
 }
 
-browser_wrap {
+#browser_wrap {
   box-shaddow: 0px 0px 10px black;
 }
 
