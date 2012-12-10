@@ -14,7 +14,7 @@ a{
   text-decoration: none;
 }
 
-nav {
+nav#main_nav {
   -webkit-app-region: drag;
 }
 
