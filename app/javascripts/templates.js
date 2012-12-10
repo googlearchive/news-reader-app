@@ -25,9 +25,9 @@ return __p;
 },"browser": function(obj){
 var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
 with(obj||{}){
-__p+='<browser id="news_browser" src="'+
+__p+='<webview id="news_browser" src="'+
 ( link )+
-'" width="100%" height="100%"></browser>\n';
+'" width="100%" height="100%"></webview>\n';
 }
 return __p;
 }};
