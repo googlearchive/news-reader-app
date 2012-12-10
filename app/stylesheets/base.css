@@ -14,6 +14,10 @@ a{
   text-decoration: none;
 }
 
+nav {
+  -webkit-app-region: drag;
+}
+
 #main_nav, .news_item{ -webkit-transform: translate3d(0, 0, 0); }
 
 ::-webkit-scrollbar{
