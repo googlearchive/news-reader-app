@@ -10,7 +10,7 @@
 window.App = {
 
   // The perPage setting tells the applications how many articles to display per page
-  perPage: 30,
+  perPage: 100,
 
   dispatcher: _.clone(Backbone.Events),
 
