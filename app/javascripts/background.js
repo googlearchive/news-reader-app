@@ -10,6 +10,7 @@
 
 chrome.app.runtime.onLaunched.addListener(function() {
   var opts = {
+    id: 'main',
     width: 1200,
     height: 600,
     left: 100,
