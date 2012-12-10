@@ -23,7 +23,9 @@ App.setup.initializeMessaging = function(){
 
 // ### view initalization functions
 App.setup.initializeSettingsView        = function(){ new App.SettingsView();                             };
-App.setup.initializeWindowView          = function(){ new App.WindowView(); new App.CloseWindowView();    };
+App.setup.initializeWindowView          = function(){ new App.WindowView(); 
+                                                      new App.CloseWindowView();
+                                                      new App.FullScreenView();                           };
 App.setup.initializeCategoriesListView  = function(){ new App.CategoriesListView();                       };
 App.setup.initializeIntentView          = function(){ new App.IntentView();                               };
 App.setup.initializeCloseBrowserView    = function(){ new App.CloseBrowserView();                         };

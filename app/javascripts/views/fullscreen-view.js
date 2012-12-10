@@ -4,7 +4,7 @@ App.FullScreenView = Backbone.View.extend({
   },
   events: {
     click: function(){
-      document.webkitRequestFullscreen();
+      document.body.webkitRequestFullscreen();
 
       return false;
     }
