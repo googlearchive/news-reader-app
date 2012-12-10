@@ -19,7 +19,7 @@ nav#main_nav {
 }
 
 #browser_wrap {
-  box-shaddow: 0px 0px 10px black;
+  box-shadow: 0px 0px 10px black;
 }
 
 #main_nav, .news_item{ -webkit-transform: translate3d(0, 0, 0); }

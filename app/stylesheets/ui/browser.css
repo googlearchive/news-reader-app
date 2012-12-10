@@ -6,7 +6,6 @@
   left: 100%;
   overflow: hidden;
   background: #fff;
-  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, .1);
   -webkit-transition: all .15s ease;
 }
 
