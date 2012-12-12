@@ -3,7 +3,9 @@ var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
 with(obj||{}){
 __p+='';
  if (image) { 
-;__p+='\n  <img src="'+
+;__p+='\n  <img data-src="'+
+( image )+
+'" src="'+
 ( image )+
 '" />\n';
  } 
