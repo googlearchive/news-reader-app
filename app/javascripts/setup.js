@@ -55,40 +55,29 @@ App.setup.initializeAndLoadSettings = function(){
 // Handles all initialization to do with the articles collections and model
 App.setup.initializeArticles = function(){
 
-  // Initialize filer, this is a wrapper library for the HTML5 Filesystem API
-  App.filer = new Filer();
-  App.filer.init({persistent: true, size: 1024 * 1024}, function(fs) {
+  // Filer is now initialized, the articles collection can be initialized
+  App.articles = new App.Articles();
 
-    // set the file size limit to 10 mb
-    App.filer.size = 10485760;
+  // Trigger the `articlesInitialized` event
+  App.dispatcher.trigger('articlesInitialized');
 
-    // Filer is now initialized, the articles collection can be initialized
-    App.articles = new App.Articles();
+  // Load articles from storage
+  App.articles.fetch({
+    success: function(){
 
-    // Trigger the `articlesInitialized` event
-    App.dispatcher.trigger('articlesInitialized');
+      // Tell the articles model to start pulling data from the Google news feeds
+      App.articles.startProcessing();
 
-    // Load articles from storage
-    App.articles.fetch({
-      success: function(){
-
-        // Tell the articles model to start pulling data from the Google news feeds
-        App.articles.startProcessing();
-
-        // Trigger the `articlesLoaded` event
-        App.dispatcher.trigger('articlesLoaded');
-      }
-    });
-
-  }, function(e){
-
-    // Log any filer errors to the console for debugging
-    console.warn('error: ', e);
+      // Trigger the `articlesLoaded` event
+      App.dispatcher.trigger('articlesLoaded');
+    }
   });
 };
 
 // Trigger the `appLoaded` event when everything is loaded
 $(function() {
+  RAL.debug = true;
+  RAL.Queue.start();
   App.dispatcher.trigger('appLoaded');
 });
 

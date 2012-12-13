@@ -50,11 +50,7 @@ App.SearchResults = Backbone.Collection.extend({
 
           // Only store the image and save the article if it not already in the database
           if(!self.get(item.id)){
-            if(parsedItem.image){
-              self.trigger('articleGrabbedWithImage', parsedItem);
-            }else{
-              self.trigger('articleGrabbed', parsedItem);
-            }
+            self.trigger('articleGrabbed', parsedItem);
           }
         });
       }
@@ -68,29 +64,4 @@ App.SearchResults = Backbone.Collection.extend({
     var searchResult = new App.SearchResult(item);
     this.add(searchResult);
   },
-
-  // ### storeImage(item)
-  // Accepts an item object
-  // Grabs the remote image for the article and saves it to the HTML5 Filesystem usinf filer.js
-  storeImage: function(item){
-    var xhr = new XMLHttpRequest();
-    var self = this;
-    xhr.responseType = "arraybuffer";
-    xhr.onload = function() {
-      var d = xhr.response;
-      var newUrl = encodeURIComponent(item.image);
-      var contentType = xhr.getResponseHeader('Content-Type');
-      App.filer.write(
-        newUrl,
-        {data: d, type: contentType},
-        function(fileEntry, fileWriter) {
-          item.image = fileEntry.toURL();
-          self.trigger('imageGrabbed', item);
-        },
-        function(e) {console.warn(e);}
-      );
-    };
-    xhr.open("GET", item.image);
-    xhr.send();
-  }
 });

@@ -52,7 +52,6 @@ App.Article = Backbone.Model.extend({
   // ### destroyFile(article)
   // When the record is destroyed remove the image from the HTML5 Filesystem.
   destroyFile: function(article){
-    App.filer.rm(article.get('image'), function(){});
   }
 });
 
@@ -67,7 +66,6 @@ App.Articles = Backbone.Collection.extend({
   // Setup handlers for events that are raised by the collection, these are used when
   // processing new articles.
   initialize: function(){
-    this.on('articleGrabbedWithImage',  this.storeImage,  this);
     this.on('articleGrabbed',           this.saveItem,    this);
     this.on('imageGrabbed',             this.saveItem,    this);
   },
@@ -144,16 +142,7 @@ App.Articles = Backbone.Collection.extend({
 
             // Only store the image and save the article if it not already in the database
             if(!self.get(item.id)){
-
-              if(parsedItem.image){
-
-                // If we were able to extract an image from the item raise the `articleGrabbedWithImage` event
-                self.trigger('articleGrabbedWithImage', parsedItem);
-              }else{
-
-                // Otherwise raise the `articleGrabbed` event
-                self.trigger('articleGrabbed', parsedItem);
-              }
+              self.trigger('articleGrabbed', parsedItem);
             }
           });
         }
@@ -168,31 +157,6 @@ App.Articles = Backbone.Collection.extend({
     var article = new App.Article(item);
     article.save();
     this.add(article);
-  },
-
-  // ### storeImage(item)
-  // Accepts an item object
-  // Grabs the remote image for the article and saves it to the HTML5 Filesystem usinf filer.js
-  storeImage: function(item, callback){
-    var xhr = new XMLHttpRequest();
-    var self = this;
-    xhr.responseType = "arraybuffer";
-    xhr.onload = function() {
-      var d = xhr.response;
-      var newUrl = encodeURIComponent(item.image);
-      var contentType = xhr.getResponseHeader('Content-Type');
-      App.filer.write(
-        newUrl,
-        {data: d, type: contentType},
-        function(fileEntry, fileWriter) {
-          item.image = fileEntry.toURL();
-          self.trigger('imageGrabbed', item);
-        },
-        function(e) {console.warn(e);}
-      );
-    };
-    xhr.open("GET", item.image);
-    xhr.send();
   },
 
   // ### removeWithCategory(category)

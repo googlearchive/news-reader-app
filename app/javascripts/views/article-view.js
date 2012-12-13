@@ -18,6 +18,14 @@ App.ArticleView = Backbone.View.extend({
   // Renders the template with the model data and adds it to the views element
   render: function(){
     $(this.el).html(App.templates.article(this.model.toJSON()));
+
+    // start the asset download
+    var img = $("img", this.el)[0];
+    if(!!img) {
+      var remoteImage = new RAL.RemoteImage({element: $("img", this.el)[0]});
+      RAL.Queue.add(remoteImage, {autoStart: true});
+    }
+    
     return this;
   },
   events: {
@@ -61,7 +69,8 @@ App.ArticlesView = Backbone.View.extend({
     this.setElement("#news_container");
 
     this.$el.masonry({
-      itemSelector: ".news_item:visible",
+      //itemSelector: ".news_item:visible",
+      itemSelector: ".news_item",
       isFitWidth: false,
       layoutPriorities: { shelfOrder: 1.21 }
     });

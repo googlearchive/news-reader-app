@@ -5,8 +5,6 @@ __p+='';
  if (image) { 
 ;__p+='\n  <img data-src="'+
 ( image )+
-'" src="'+
-( image )+
 '" />\n';
  } 
 ;__p+='\n<p class="news_category">'+

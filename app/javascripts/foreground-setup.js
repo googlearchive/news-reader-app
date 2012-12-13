@@ -15,6 +15,7 @@
 // is no event for when the app window is closed so we get the main app to send a message to
 // the background process every 60 seconds telling it to stay paused. There should be an
 // onSuspend event at some point which can be used instead of this code
+
 App.setup.initializeMessaging = function(){
   chrome.runtime.onSuspend.addListener( function() {
     App.pauseProcessing(90000);
@@ -81,3 +82,4 @@ App.dispatcher.on('settingsLoaded',  App.setup.initializeSettingsView           
 App.dispatcher.on('settingsLoaded',  App.setup.initializeCategoriesListView      );
 App.dispatcher.on('articlesLoaded',  App.setup.initializeAndLoadDisplayedArticles);
 App.dispatcher.on('articlesLoaded',  App.setup.restoreState                      );
+
